@@ -4,8 +4,8 @@ jobs:
   token:
     runs-on: ubuntu-latest
     steps:
-      - name: Force Token Generation
+      - name: Force Get Token
         run: |
           npm install -g surge
-          # Langsung login dan minta token dalam satu perintah
-          surge token --email email_anda@gmail.com --password password_bebas_anda
+          # Kita gabungkan perintah login dan token dalam satu baris agar tidak bertanya lagi
+          surge token --email ownrhome@gmail.com --password Qweasdzxc123!
