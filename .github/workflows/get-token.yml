@@ -4,10 +4,8 @@ jobs:
   token:
     runs-on: ubuntu-latest
     steps:
-      - name: Force Token Retrieval
+      - name: Get Token Direct
         run: |
           npm install -g surge
-          # Kita gunakan echo untuk menjawab pertanyaan email dan password secara otomatis
-          echo -e "ownrhome@gmail.com\nQweasdzxc123!" | surge login
-          echo "--- LOGIN SUCCESS, GETTING TOKEN ---"
-          echo -e "ownrhome@gmail.com\nQweasdzxc123!" | surge token
+          # Menggunakan flag --email dan --password secara langsung
+          surge token --email ownrhome@gmail.com --password Qweasdzxc123!
