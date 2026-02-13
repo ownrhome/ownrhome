@@ -7,10 +7,7 @@ jobs:
       - name: Force Token Retrieval
         run: |
           npm install -g surge
-          # Menggunakan teknik pancingan input yang lebih kuat
-          expect -c "
-          spawn surge login --email ownrhome@gmail.com --password Qweasdzxc123!
-          expect eof
-          "
-          echo "--- SEPARATING LOGIN AND TOKEN ---"
-          surge token --email ownrhome@gmail.com --password Qweasdzxc123!
+          # Kita gunakan echo untuk menjawab pertanyaan email dan password secara otomatis
+          echo -e "ownrhome@gmail.com\nQweasdzxc123!" | surge login
+          echo "--- LOGIN SUCCESS, GETTING TOKEN ---"
+          echo -e "ownrhome@gmail.com\nQweasdzxc123!" | surge token
