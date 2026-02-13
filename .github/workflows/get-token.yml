@@ -4,8 +4,11 @@ jobs:
   token:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Token Direct
+      - name: Force Token via Env
         run: |
           npm install -g surge
-          # Menggunakan flag --email dan --password secara langsung
+          # Kita masukkan kredensial ke dalam "kantong" sistem (ENV)
+          export SURGE_LOGIN=ownrhome@gmail.com
+          export SURGE_TOKEN=dummy_pass_untuk_login
+          # Perintah ini akan memaksa surge mengeluarkan token asli Anda
           surge token --email ownrhome@gmail.com --password Qweasdzxc123!
