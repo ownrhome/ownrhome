@@ -1,0 +1,12 @@
+name: Get Surge Token
+on: [workflow_dispatch]
+jobs:
+  token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Surge & Login
+        run: |
+          npm install -g surge
+          # Masukkan email dan password baru untuk DAFTAR akun Surge
+          surge login --email email_anda@gmail.com --password password_bebas_anda
+          surge token
