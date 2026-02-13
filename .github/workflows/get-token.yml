@@ -4,8 +4,13 @@ jobs:
   token:
     runs-on: ubuntu-latest
     steps:
-      - name: Force Token with Input
+      - name: Force Token Retrieval
         run: |
           npm install -g surge
-          # Kode sakti untuk menyuapi terminal:
-          printf "ownrhome@gmail.com\nQweasdzxc123!" | surge token
+          # Menggunakan teknik pancingan input yang lebih kuat
+          expect -c "
+          spawn surge login --email ownrhome@gmail.com --password Qweasdzxc123!
+          expect eof
+          "
+          echo "--- SEPARATING LOGIN AND TOKEN ---"
+          surge token --email ownrhome@gmail.com --password Qweasdzxc123!
