@@ -4,11 +4,12 @@ jobs:
   token:
     runs-on: ubuntu-latest
     steps:
-      - name: Force Token via Env
+      - name: Force Token via Environment
+        env:
+          SURGE_LOGIN: ownrhome@gmail.com
+          SURGE_TOKEN: Qweasdzxc123!
         run: |
           npm install -g surge
-          # Kita masukkan kredensial ke dalam "kantong" sistem (ENV)
-          export SURGE_LOGIN=ownrhome@gmail.com
-          export SURGE_TOKEN=dummy_pass_untuk_login
-          # Perintah ini akan memaksa surge mengeluarkan token asli Anda
-          surge token --email ownrhome@gmail.com --password Qweasdzxc123!
+          # Kita panggil perintah token tanpa argumen, 
+          # Surge akan otomatis mengambil dari variabel env di atas
+          surge token
